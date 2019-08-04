@@ -45,6 +45,9 @@ class LoginController extends Controller
             auth()->logout();
             return redirect()->route('login')->with('deactivated', 'This account has been deactivated');
         }
+        if($user->user_type == 'admin'){
+            return redirect()->route('admin.dashboard');
+        }
     }
 
 }
