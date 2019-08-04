@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('css/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css">
@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -33,7 +34,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin </div>
             </a>
 
             <!-- Divider -->
@@ -56,8 +57,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.users') }}">
-                    <i class="fas fa-fw fa-cog"></i>
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                    <i class="fas fa-fw fa-users"></i>
                     <span>Users</span>
                 </a>
             </li>
@@ -86,41 +87,8 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -156,13 +124,11 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    </div>
+
+                    @yield('content')
+
                 </div>
             </div>
-        @yield('content')
         <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -218,10 +184,14 @@
 
     <!-- Page level plugins -->
     <script src="{{ asset('js/Chart.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/datatables-demo.js') }}"></script>
 
     <!-- Page level custom scripts -->
     {{--<script src="js/demo/chart-area-demo.js"></script>--}}
     {{--<script src="js/demo/chart-pie-demo.js"></script>--}}
+    @yield('scripts')
 
 </body>
 

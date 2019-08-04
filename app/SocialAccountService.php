@@ -28,7 +28,8 @@ class SocialAccountService
             'email' => $providerUser->getEmail(),
             'name' => $providerUser->getName(),
             'user_type' => 'customer',
-            'active' => 1
+            'active' => 1,
+            'email_verified_at' => now()
         ]);
 
         SocialAccount::create([

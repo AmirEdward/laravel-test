@@ -19,7 +19,8 @@
                             </div>
                         @endif
 
-                        You are logged in!
+                        Hello {{ Auth::user()->name }},
+                        Your role is {{ Auth::user()->user_type }}
                     </div>
                 </div>
             </div>
